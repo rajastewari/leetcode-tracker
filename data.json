@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "title": "Two Sum",
+        "difficulty": "Easy",
+        "status": "done",
+        "redo": false,
+        "notes": ""
+    },
+    {
+        "id": 2,
+        "title": "Add Two Numbers",
+        "difficulty": "Medium",
+        "status": "todo",
+        "redo": true,
+        "notes": ""
+    }
+]

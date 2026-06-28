@@ -9,7 +9,6 @@ class Problem:
         self.notes = ""
 
     # method to update the status of the problem
-
     def update_status(self, new_status):
         if new_status in ["todo", "in_progress", "done"]:
             self.status = new_status
@@ -21,6 +20,7 @@ class Problem:
         redo_flag = " [REDO]" if self.redo else ""
         return f"[{self.id}] {self.title} ({self.difficulty}) - {self.status}{redo_flag}"
 
+    # method to convert Problem object to a dictionary
     def to_dict(self):
         return {
             "id": self.id,
@@ -31,6 +31,7 @@ class Problem:
             "notes": self.notes
         }
 
+    # method to create a Problem object from a dictionary
     @staticmethod
     def from_dict(data):
         problem = Problem(data["id"], data["title"], data["difficulty"])
@@ -38,3 +39,5 @@ class Problem:
         problem.redo = data.get("redo", False)
         problem.notes = data.get("notes", "")
         return problem
+
+

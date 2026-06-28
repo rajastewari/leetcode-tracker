@@ -14,5 +14,13 @@
         "status": "todo",
         "redo": true,
         "notes": ""
+    },
+    {
+        "id": "1",
+        "title": "Two Sum",
+        "difficulty": "Easy",
+        "status": "todo",
+        "redo": false,
+        "notes": ""
     }
 ]

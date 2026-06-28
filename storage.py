@@ -18,22 +18,3 @@ def load():
     except FileNotFoundError: # return empty list if json file does not exist
         return []
     
-
-from problems import Problem
-
-# create some problems
-problems = [
-    Problem(1, "Two Sum", "Easy"),
-    Problem(2, "Add Two Numbers", "Medium"),
-]
-problems[0].update_status("done")
-problems[1].redo = True
-
-# save them
-save(problems)
-print("Saved!")
-
-# load them back
-loaded = load()
-for p in loaded:
-    print(p)

@@ -43,8 +43,36 @@ def list_problems(problems):
         return
     
     # list all problems
-    print("\nList of Problems:")
-    for p in problems:
+    # updated to filter by status
+    print("\nFilter by status:")
+    print("1. All")
+    print("2. Todo")
+    print("3. In Progress")
+    print("4. Done")
+    print("5. Redo Queue")
+
+    choice = input("\nChoose a number: ")
+
+    if choice == "1":
+        filtered = problems
+    elif choice == "2":
+        filtered = [p for p in problems if p.status == "todo"]
+    elif choice == "3":
+        filtered = [p for p in problems if p.status == "in_progress"]
+    elif choice == "4":
+        filtered = [p for p in problems if p.status == "done"]
+    elif choice == "5":
+        filtered = [p for p in problems if p.redo]
+    else:
+        print("Invalid option.")
+        return
+
+    if not filtered:
+        print("No problems found.")
+        return
+
+    print(f"{len(filtered)} problems:")
+    for p in filtered:
         print(p)
 
 
@@ -63,9 +91,19 @@ def mark_redo(problems):
         
         print("Problem not found.")
 
+# added a summary function called upon running application
+def summary(problems):
+    # print number of problems by status
+    todo = len([p for p in problems if p.status == "todo"])
+    in_progress = len([p for p in problems if p.status == "in_progress"])
+    done = len([p for p in problems if p.status == "done"])
+    redo = len([p for p in problems if p.redo])
+
+    print(f"\n Todo: {todo} | In Progress: {in_progress} | Done: {done} | Redo Queue: {redo}")
 
 def main():
     problems = storage.load()
+    summary(problems)
 
     # loop for menu
     while True:
